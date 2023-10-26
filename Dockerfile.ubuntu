@@ -14,4 +14,7 @@ RUN tar -xzvf /resources/spark-3.5.0-bin-hadoop3.tgz -C /resources
 
 RUN unzip /resources/Data/archive.zip -d /resources/Data
 
+ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+ENV DEBIAN_FRONTEND=nointeractive
+
 CMD ["/bin/bash", "-c", "while true; do sleep 4600; done"]
