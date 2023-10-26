@@ -1,2 +1,11 @@
 #to run server bash
 docker-compose exec {name-server} /bin/bash 
+
+
+#run spark
+/resources/spark-3.5.0-bin-hadoop3/sbin/start-master.sh
+/resources/spark-3.5.0-bin-hadoop3/sbin/start-slave.sh
+
+#stop spark
+/resources/spark-3.5.0-bin-hadoop3/sbin/stop-master.sh
+/resources/spark-3.5.0-bin-hadoop3/sbin/stop-slave.sh
