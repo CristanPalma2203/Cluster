@@ -8,4 +8,10 @@ ENV CONTAINER_NAME=srv_ubuntu
 
 ENV MEMORY_LIMIT=3g
 
+COPY ./resources /resources
+
+RUN tar -xzvf /resources/spark-3.5.0-bin-hadoop3.tgz -C /resources
+
+RUN unzip /resources/Data/archive.zip -d /resources/Data
+
 CMD ["/bin/bash", "-c", "while true; do sleep 4600; done"]

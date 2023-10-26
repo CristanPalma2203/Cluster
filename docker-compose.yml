@@ -1,0 +1,12 @@
+version: '3'
+services:
+  srv_ubuntu:
+      build:
+        context: .
+        dockerfile: Dockerfile.ubuntu
+  srv_ubuntu_slave_0:
+    extends:
+        service: srv_ubuntu
+  srv_ubuntu_slave_1:
+    extends:
+        service: srv_ubuntu
