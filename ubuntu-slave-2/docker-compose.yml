@@ -1,0 +1,6 @@
+version: '3'
+services:
+  srv_ubuntu:
+    build:
+      context: .
+      dockerfile: Dockerfile.ubuntu
