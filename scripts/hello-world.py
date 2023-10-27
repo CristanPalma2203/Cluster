@@ -1,10 +1,14 @@
 from pyspark.sql import SparkSession
-spark=SparkSession.builder.getOrCreate()
 
-df=spark.read.options(header='True',inferShema='True').csv('/resources/Data/*.csv')
+spark = SparkSession.builder.getOrCreate()
 
-products.mode.write('overwrite').csv("/resultado/result1")
+df = spark.read.options(header='True', inferSchema='True').csv('/resources/Data/*.csv')
 
-producto = df.select(['product_id']).filter("event_type='cart'").first()
+df.write.format('com.databricks.spark.csv') \
+  .mode('overwrite').option("header", "true").save("/resultado/result1")
 
-sessiones = df.select(['user_session']).filter("event_type='purchase' and product_id = "+producto).distinc()
+producto = df.select('product_id').filter(df['event_type'] == 'cart').first()
+
+product_id = producto['product_id']
+
+sessiones = df.select('user_session').filter((df['event_type'] == 'purchase') & (df['product_id'] == product_id)).distinct()

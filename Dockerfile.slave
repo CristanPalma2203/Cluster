@@ -21,4 +21,4 @@ ENV DEBIAN_FRONTEND=nointeractive
 
 EXPOSE 8080
 
-CMD ["/bin/bash", "-c", "/resources/spark-3.5.0-bin-hadoop3/sbin/start-master.sh && while true; do sleep 4600; done"]
+CMD ["/bin/bash", "-c", "/resources/spark-3.5.0-bin-hadoop3/sbin/start-slave.sh spark://srvmaster:7077 && while true; do sleep 4600; done"]

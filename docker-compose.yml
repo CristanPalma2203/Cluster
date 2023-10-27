@@ -1,5 +1,6 @@
 version: '3'
 services:
+
   srv_ubuntu:
     build:
       context: .
@@ -8,26 +9,20 @@ services:
       - "8080:8080"
     hostname: srvmaster 
 
-  srv_ubuntu_slave_0:
+  srv_ubuntu_slave:
     build:
       context: .
-      dockerfile: Dockerfile.ubuntu
-    ports:
-      - "8081:8080"
+      dockerfile: Dockerfile.slave
     hostname: srvslave0
 
   srv_ubuntu_slave_1:
     build:
       context: .
-      dockerfile: Dockerfile.ubuntu
-    ports:
-      - "8082:8080"
+      dockerfile: Dockerfile.slave
     hostname: srvslave1
 
   srv_ubuntu_slave_2:
     build:
       context: .
-      dockerfile: Dockerfile.ubuntu
-    ports:
-      - "8083:8080"
+      dockerfile: Dockerfile.slave
     hostname: srvslav2

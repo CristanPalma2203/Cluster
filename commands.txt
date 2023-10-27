@@ -1,20 +1,11 @@
 #to run server bash
 docker-compose exec {name-server} /bin/bash 
 
-#run spark
-/resources/spark-3.5.0-bin-hadoop3/sbin/start-master.sh
-/resources/spark-3.5.0-bin-hadoop3/sbin/start-slave.sh  spark://srvmaster:7077
-
-#stop spark
-/resources/spark-3.5.0-bin-hadoop3/sbin/stop-master.sh 
-/resources/spark-3.5.0-bin-hadoop3/sbin/stop-slave.sh
-
-hostname
+#view logs server spark
 cat /resources/spark-3.5.0-bin-hadoop3/logs/spark--org.apache.spark.deploy.master.Master-1-srvmaster.out
 
 #run pyspark
 /resources/spark-3.5.0-bin-hadoop3/bin/pyspark
-
 
 #run scripts 
 /resources/spark-3.5.0-bin-hadoop3/bin/spark-submit --master spark://srvmaster:7077  /scripts/hello-world.py
