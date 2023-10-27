@@ -8,4 +8,7 @@ cat /resources/spark-3.5.0-bin-hadoop3/logs/spark--org.apache.spark.deploy.maste
 /resources/spark-3.5.0-bin-hadoop3/bin/pyspark
 
 #run scripts 
-/resources/spark-3.5.0-bin-hadoop3/bin/spark-submit --master spark://srvmaster:7077  /scripts/hello-world.py
+docker-compose exec {srv_name} /resources/spark-3.5.0-bin-hadoop3/bin/spark-submit --master spark://srvmaster:7077  /scripts/hello-world.py
+
+
+docker-compose exec srv_ubuntu /resources/spark-3.5.0-bin-hadoop3/bin/spark-submit --master spark://srvmaster:7077  /scripts/hello-world.py
