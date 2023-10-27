@@ -2,17 +2,19 @@
 docker-compose exec {name-server} /bin/bash 
 
 #run spark
-/resources/spark-3.5.0-bin-hadoop3/bin/pyspark
-
-#run spark
-/resources/spark-3.5.0-bin-hadoop3/sbin/start-master.sh
-/resources/spark-3.5.0-bin-hadoop3/sbin/start-slave.sh  spark://d7a72162db71:7077
+/resources/spark-3.5.0-bin-hadoop3/sbin/start-master.sh -h 0.0.0.0
+/resources/spark-3.5.0-bin-hadoop3/sbin/start-slave.sh  spark://srv_ubuntu_hostname:7077
 
 #stop spark
 /resources/spark-3.5.0-bin-hadoop3/sbin/stop-master.sh 
 /resources/spark-3.5.0-bin-hadoop3/sbin/stop-slave.sh
 
-
 hostname
-cat /resources/spark-3.5.0-bin-hadoop3/logs/spark--org.apache.spark.deploy.master.Master-1-{hostname}.out
+cat /resources/spark-3.5.0-bin-hadoop3/logs/spark--org.apache.spark.deploy.master.Master-1-srv_ubuntu_hostname.out
 
+#run pyspark
+/resources/spark-3.5.0-bin-hadoop3/bin/pyspark
+
+
+#run scripts 
+/resources/spark-3.5.0-bin-hadoop3/bin/spark-submit --master spark://srv_ubuntu_hostname:7077  /scripts/hello-world.py

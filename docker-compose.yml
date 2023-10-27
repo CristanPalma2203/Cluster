@@ -1,15 +1,33 @@
 version: '3'
 services:
   srv_ubuntu:
-      build:
-        context: .
-        dockerfile: Dockerfile.ubuntu
+    build:
+      context: .
+      dockerfile: Dockerfile.ubuntu
+    ports:
+      - "8080:8080"
+    hostname: srv_ubuntu_hostname  
+
   srv_ubuntu_slave_0:
-    extends:
-        service: srv_ubuntu
+    build:
+      context: .
+      dockerfile: Dockerfile.ubuntu
+    ports:
+      - "8081:8080"
+    hostname: srv_ubuntu_slave_0_hostname 
+
   srv_ubuntu_slave_1:
-    extends:
-        service: srv_ubuntu
+    build:
+      context: .
+      dockerfile: Dockerfile.ubuntu
+    ports:
+      - "8082:8080"
+    hostname: srv_ubuntu_slave_1_hostname  
+
   srv_ubuntu_slave_2:
-    extends:
-        service: srv_ubuntu
+    build:
+      context: .
+      dockerfile: Dockerfile.ubuntu
+    ports:
+      - "8083:8080"
+    hostname: srv_ubuntu_slave_2_hostname  
