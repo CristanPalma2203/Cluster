@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile.ubuntu
     ports:
       - "8080:8080"
-    hostname: srv_ubuntu_hostname  
+    hostname: srvmaster 
 
   srv_ubuntu_slave_0:
     build:
@@ -14,7 +14,7 @@ services:
       dockerfile: Dockerfile.ubuntu
     ports:
       - "8081:8080"
-    hostname: srv_ubuntu_slave_0_hostname 
+    hostname: srvslave0
 
   srv_ubuntu_slave_1:
     build:
@@ -22,7 +22,7 @@ services:
       dockerfile: Dockerfile.ubuntu
     ports:
       - "8082:8080"
-    hostname: srv_ubuntu_slave_1_hostname  
+    hostname: srvslave1
 
   srv_ubuntu_slave_2:
     build:
@@ -30,4 +30,4 @@ services:
       dockerfile: Dockerfile.ubuntu
     ports:
       - "8083:8080"
-    hostname: srv_ubuntu_slave_2_hostname  
+    hostname: srvslav2
